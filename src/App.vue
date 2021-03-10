@@ -1,44 +1,39 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="sideNav">
-      <v-list>
-        <v-list-item-group
-          v-model="selectedItem"
-          color="primary"
-        >
-          <v-list-item
-            v-for="(item, i) in items"
-            :key="i"
-          >
-            <v-list-item-icon>
-              <v-icon v-text="item.icon"></v-icon>
-            </v-list-item-icon>
 
-            <v-list-item-content>
-              <v-list-item-title v-text="item.text"></v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-item-group>
+    <!-- Navigation drawer for mobile screens only -->
+    <v-navigation-drawer v-model="sideNav">
+      <v-list nav dense>
+        <v-list-item v-for="item in menuItems" :key="item.title">
+          
+            <v-icon left small>
+              {{item.icon}} 
+            </v-icon>
+            <v-list-item-title>
+              {{item.title}}
+            </v-list-item-title>
+        
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar dense>
-      <v-icon left  @click.native="sideNav = !sideNav">
-        fas fa-bars 
-      </v-icon>
-      <v-toolbar-title>DevMeetup</v-toolbar-title>
+
+    <!--App bar for bigger screen -->
+    <v-app-bar color="grey" elevate-on-scroll scroll-target="#scrolling-techniques-7">
+      <v-app-bar-nav-icon left  @click.stop="sideNav = !sideNav" class="hidden-sm-and-up"> </v-app-bar-nav-icon>
+      <v-toolbar-title class="font-weight-bold">DevMeetup</v-toolbar-title>
 
       <v-spacer></v-spacer>
       
-      <v-toolbar-items>
-        <v-btn elevation="2"> 
+      <v-toolbar-items class="hidden-xs-only" v-for="item in menuItems" :key="item.title">
+        <v-btn elevation="3"> 
           <v-icon left small>
-            fas fa-users
+            {{item.icon}}
           </v-icon>
-          Meetups
+          {{item.title}}
         </v-btn>
       </v-toolbar-items>
       
-    </v-toolbar>
+    </v-app-bar>
     <main dark>
 
     </main>
@@ -56,7 +51,14 @@ export default {
   },
 
   data: () => ({
-      sideNav: false
+      sideNav: false,
+      menuItems: [
+       { icon: 'fas fa-users', title: 'Meetups' },
+       { icon: 'fas fa-coffee', title: 'Organize Meetup' },
+       { icon: 'fas fa-id-card-alt', title: 'Profile' },
+       { icon: 'fas fa-user-plus', title: 'Sign up' },
+       { icon: 'fas fa-user-lock', title: 'Sign in' },
+      ]
   }),
 };
 </script>
