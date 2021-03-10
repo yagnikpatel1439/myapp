@@ -2,10 +2,10 @@
   <v-app>
 
     <!-- Navigation drawer for mobile screens only -->
-    <v-navigation-drawer v-model="sideNav">
+    <v-navigation-drawer absolute temporary v-model="sideNav">
       <v-list nav dense>
-        <v-list-item v-for="item in menuItems" :key="item.title">
-          
+        <v-list-item link v-for="item in menuItems" :key="item.title">
+
             <v-icon left small>
               {{item.icon}} 
             </v-icon>
@@ -18,8 +18,8 @@
     </v-navigation-drawer>
 
     <!--App bar for bigger screen -->
-    <v-app-bar color="grey" elevate-on-scroll scroll-target="#scrolling-techniques-7">
-      <v-app-bar-nav-icon left  @click.stop="sideNav = !sideNav" class="hidden-sm-and-up"> </v-app-bar-nav-icon>
+    <v-app-bar fixed color="grey" elevate-on-scroll scroll-target="#scrolling-techniques-7">
+      <v-app-bar-nav-icon left  @click="sideNav = !sideNav" class="hidden-sm-and-up"> </v-app-bar-nav-icon>
       <v-toolbar-title class="font-weight-bold">DevMeetup</v-toolbar-title>
 
       <v-spacer></v-spacer>
