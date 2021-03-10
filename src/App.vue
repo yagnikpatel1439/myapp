@@ -4,7 +4,7 @@
     <!-- Navigation drawer for mobile screens only -->
     <v-navigation-drawer absolute temporary v-model="sideNav">
       <v-list nav dense>
-        <v-list-item link v-for="item in menuItems" :key="item.title">
+        <v-list-item link v-for="item in menuItems" :key="item.title" router :to="item.link">
 
             <v-icon left small>
               {{item.icon}} 
@@ -18,14 +18,18 @@
     </v-navigation-drawer>
 
     <!--App bar for bigger screen -->
-    <v-app-bar fixed color="grey" elevate-on-scroll scroll-target="#scrolling-techniques-7">
+    <v-app-bar fixed color="grey">
       <v-app-bar-nav-icon left  @click="sideNav = !sideNav" class="hidden-sm-and-up"> </v-app-bar-nav-icon>
-      <v-toolbar-title class="font-weight-bold">DevMeetup</v-toolbar-title>
+      <v-toolbar-title  class="font-weight-bold">
+        <router-link to="/" tag="span" style="cursor: pointer">
+        DevMeetup
+        </router-link>
+        </v-toolbar-title>
 
       <v-spacer></v-spacer>
       
       <v-toolbar-items class="hidden-xs-only" v-for="item in menuItems" :key="item.title">
-        <v-btn elevation="3"> 
+        <v-btn elevation="3" router :to="item.link"> 
           <v-icon left small>
             {{item.icon}}
           </v-icon>
@@ -53,11 +57,11 @@ export default {
   data: () => ({
       sideNav: false,
       menuItems: [
-       { icon: 'fas fa-users', title: 'Meetups' },
-       { icon: 'fas fa-coffee', title: 'Organize Meetup' },
-       { icon: 'fas fa-id-card-alt', title: 'Profile' },
-       { icon: 'fas fa-user-plus', title: 'Sign up' },
-       { icon: 'fas fa-user-lock', title: 'Sign in' },
+       { icon: 'fas fa-users', title: 'Meetups', link:'/meetups' },
+       { icon: 'fas fa-coffee', title: 'Organize Meetup', link:'/meetup/new' },
+       { icon: 'fas fa-id-card-alt', title: 'Profile', link:'/profile' },
+       { icon: 'fas fa-user-plus', title: 'Sign up', link:'/signup' },
+       { icon: 'fas fa-user-lock', title: 'Sign in', link:'/signin' },
       ]
   }),
 };
