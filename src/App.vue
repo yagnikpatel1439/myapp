@@ -35,7 +35,7 @@
       
     </v-app-bar>
     <main dark>
-
+      <router-view></router-view>
     </main>
   </v-app>
 </template>
