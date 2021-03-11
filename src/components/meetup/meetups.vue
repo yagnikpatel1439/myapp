@@ -1,15 +1,78 @@
 <template>
-    <div>
-        <p>The Meetups page</p>
+    <v-card
+    class="mx-auto"
+    max-width="800"
+    elevation="2"
 
-        <br/>
+  >
+    <v-container v-for="meetup in meetups" :key="meetup.id">
+        <v-img  :src="meetup.imageUrl" max-height="400px">
+        <v-card-title>
+            {{meetup.title}}
+        </v-card-title>
+        </v-img>
 
-    
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, ad. Eligendi, voluptates, officia molestias unde repellendus consequatur perspiciatis quod ratione, sapiente quisquam culpa nulla porro totam obcaecati voluptate veritatis modi!</p>
-        <p>Porro laboriosam ratione hic temporibus atque iusto excepturi, ea fugiat dolorum quod, culpa aspernatur mollitia, eum dolorem minima omnis aliquid ab ipsum nulla corrupti neque. Quo similique dignissimos repellat eaque.</p>
-        <p>At autem culpa quos debitis est, repellendus commodi nam provident deserunt ut dolore maxime a ipsa nostrum exercitationem. Reprehenderit non necessitatibus provident excepturi, voluptatum cum ipsam a beatae adipisci libero.</p>
-        <p>Ratione delectus beatae modi incidunt cumque fugit magnam, id facilis autem voluptas culpa molestias fuga rerum dicta consequatur tempora. Unde repellat dicta reprehenderit sapiente iure delectus. Fugiat quibusdam fugit atque?</p>
-        <p>Illum, quasi! Nisi distinctio at architecto minima repellendus earum cumque voluptatibus explicabo consequuntur sint. Voluptatum totam omnis vero amet at unde. Eveniet nisi cum tenetur ab in recusandae veritatis asperiores.</p>
-        <p>Iste, tempore cumque. Ea, commodi mollitia. Dicta laudantium rem quas dolorum neque incidunt fuga. At provident cumque beatae quae a obcaecati earum tempora nemo quos neque explicabo et, harum exercitationem?</p>
-    </div>
+        <v-card-subtitle class="pb-0">
+            {{meetup.subtitle}}
+        </v-card-subtitle>
+
+        <v-card-text class="text--primary">
+        <div>{{meetup.address}}</div>
+
+        <div>{{meetup.date}}</div>
+        </v-card-text>
+
+        <v-card-actions>
+        <v-btn
+            color="orange"
+            text
+        >
+            Share
+        </v-btn>
+
+        <v-btn
+            color="orange"
+            text
+        >
+            Explore
+        </v-btn>
+        </v-card-actions>
+    </v-container>
+  </v-card>
 </template>
+
+<script>
+
+export default {
+    data() {
+            return {
+                meetups: [
+                    { 
+                        imageUrl: 'https://www.startupbridge.eu/wp-content/uploads/2018/12/IMG_20181206_2036531-1030x773.jpg', 
+                        id: 'image1', 
+                        title: 'LaravelDev', 
+                        subtitle: 'Meet fellow artisans',
+                        address:'123 Khandla House',
+                        date: '30 Feb, 2020'
+                    },
+                    { 
+                        imageUrl: 'https://fundbox.com/blog/wp-content/uploads/2017/08/DC_SMB_Meetup_ss_652442728.jpg', 
+                        id: 'image2', 
+                        title: 'DjangoDev', 
+                        subtitle: 'Meet Djangoians',
+                        address:'123 Khandla House',
+                        date: '30 Feb, 2020'
+                    },
+                    { 
+                        imageUrl: 'https://cdn.eventil.com/uploads/event/header_image/299141/highres_482982453.jpg', 
+                        id: 'image3', 
+                        title: 'VueDev', 
+                        subtitle: 'Meet JS ninja',
+                        address:'123 Khandla House',
+                        date: '30 Feb, 2020'
+                    },
+                ]
+            }
+        }
+}
+</script>
