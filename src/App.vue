@@ -4,7 +4,7 @@
     <!-- Navigation drawer for mobile screens only -->
     <v-navigation-drawer absolute temporary v-model="sideNav">
       <v-list nav dense>
-        <v-list-item link v-for="item in menuItems" :key="item.title" router :to="item.link">
+        <v-list-item link v-for="item in menuItems" :key="item.title" :to="item.link">
 
             <v-icon left small>
               {{item.icon}} 
@@ -17,8 +17,8 @@
       </v-list>
     </v-navigation-drawer>
 
-    <!--App bar for bigger screen -->
-    <v-app-bar fixed color="grey">
+    <!--Toolbar for bigger screen -->
+    <v-toolbar >
       <v-app-bar-nav-icon left  @click="sideNav = !sideNav" class="hidden-sm-and-up"> </v-app-bar-nav-icon>
       <v-toolbar-title  class="font-weight-bold">
         <router-link to="/" tag="span" style="cursor: pointer">
@@ -29,7 +29,7 @@
       <v-spacer></v-spacer>
       
       <v-toolbar-items class="hidden-xs-only" v-for="item in menuItems" :key="item.title">
-        <v-btn elevation="3" router :to="item.link"> 
+        <v-btn elevation="3" :to="item.link"> 
           <v-icon left small>
             {{item.icon}}
           </v-icon>
@@ -37,8 +37,8 @@
         </v-btn>
       </v-toolbar-items>
       
-    </v-app-bar>
-    <main dark>
+    </v-toolbar>
+    <main>
       <router-view></router-view>
     </main>
   </v-app>
