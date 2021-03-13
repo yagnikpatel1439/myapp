@@ -3,7 +3,6 @@
     class="mx-auto"
     max-width="800"
     elevation="2"
-
   >
     <v-container v-for="meetup in meetups" :key="meetup.id">
         <v-img  :src="meetup.imageUrl" max-height="400px">
@@ -33,6 +32,7 @@
         <v-btn
             color="orange"
             text
+            to=""
         >
             Explore
         </v-btn>
