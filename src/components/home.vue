@@ -1,13 +1,5 @@
 <template>
-    <v-container>
-        <!-- <v-layout row wrap>
-            <v-flex xs12 sm6 class="text-xs-center text-sm-right">
-                <v-btn large router to='/meetups'> Explore Meetups </v-btn>
-            </v-flex>
-            <v-flex xs12 sm6 class="text-xs-center text-sm-right">
-                <v-btn large router to='/meetup/new'> Organize  Meetup </v-btn>
-            </v-flex>
-        </v-layout> -->
+    <v-container class="pa-md-10 mx-lg-auto">
         <v-layout row wrap>
              <v-carousel>
             <v-carousel-item
