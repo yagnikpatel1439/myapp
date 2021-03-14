@@ -37,10 +37,17 @@
             align="center"
             justify="end"
             >
-            <v-icon class="mr-1">
-                mdi-table-large-plus
-            </v-icon>
-            <span class="subheading mr-2">256</span>
+            <v-btn 
+            elevation="3" 
+            color="cyan accent" 
+            to="/meetups/1"
+            >
+                <v-icon>mdi-table-large-plus</v-icon>
+                <v-spacer></v-spacer>
+                Register
+            </v-btn>
+
+            <span class="subheading mr-2"></span>
             <span class="mr-1">·</span>
             <v-icon class="mr-1">
                 mdi-share-variant

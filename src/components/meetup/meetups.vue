@@ -32,7 +32,7 @@
         <v-btn
             color="orange"
             text
-            to=""
+            to="/meetups/1"
         >
             Explore
         </v-btn>
