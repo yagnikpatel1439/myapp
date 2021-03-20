@@ -1,69 +1,45 @@
 <template>
   <v-app>
-    <v-card>
-    <!-- Navigation drawer for mobile screens only -->
-      <v-navigation-drawer absolute temporary v-model="sideNav">
-        <v-list nav dense>
-          <v-list-item link v-for="item in menuItems" :key="item.title" :to="item.link">
+    <app-naviagtion-drawer
+      :side-nav="sideNav"
+      :menu-items="menuItems"
+      @close="sideNav = false"
+    />
 
-              <v-icon left small>
-                {{item.icon}} 
-              </v-icon>
-              <v-list-item-title>
-                {{item.title}}
-              </v-list-item-title>
-          
-          </v-list-item>
-        </v-list>
-      </v-navigation-drawer>
+    <app-naviagtion-bar
+      :menu-items="menuItems"
+      @click:side-nav="sideNav = true"
+    />
 
-    <!--Toolbar for bigger screen -->
-      <v-toolbar>
-        <v-app-bar-nav-icon left  @click="sideNav = !sideNav" class="hidden-sm-and-up"> </v-app-bar-nav-icon>
-        <v-toolbar-title  class="font-weight-bold">
-          <router-link to="/" tag="span" style="cursor: pointer">
-            DevMeetup
-          </router-link>
-        </v-toolbar-title>
-
-        <v-spacer></v-spacer>
-        
-        <v-toolbar-items class="hidden-xs-only" v-for="item in menuItems" :key="item.title">
-          <v-btn elevation="3" :to="item.link"> 
-            <v-icon left small>
-              {{item.icon}}
-            </v-icon>
-            {{item.title}}
-          </v-btn>
-        </v-toolbar-items>
-        
-      </v-toolbar>
-    </v-card>
     <main>
-      <router-view></router-view>
+      <router-view />
     </main>
   </v-app>
 </template>
 
 <script>
+import AppNaviagtionBar from './components/app-navigation-bar.vue';
+import AppNaviagtionDrawer from './components/app-navigation-drawer.vue';
 
 
 export default {
-  name: 'App',
-
   components: {
-   
+    AppNaviagtionBar,
+    AppNaviagtionDrawer,
   },
 
-  data: () => ({
-      sideNav: false,
+  data() {
+    return {
       menuItems: [
-       { icon: 'fas fa-users', title: 'Meetups', link:'/meetups' },
-       { icon: 'fas fa-coffee', title: 'Organize Meetup', link:'/meetup/new' },
-       { icon: 'fas fa-id-card-alt', title: 'Profile', link:'/profile' },
-       { icon: 'fas fa-user-plus', title: 'Sign up', link:'/signup' },
-       { icon: 'fas fa-user-lock', title: 'Sign in', link:'/signin' },
-      ]
-  }),
+        { icon: 'mdi-users', title: 'Meetups', link:'/meetups' },
+        { icon: 'mdi-coffee', title: 'Organize Meetup', link:'/meetup/new' },
+        { icon: 'mdi-profile', title: 'Profile', link:'/profile' },
+        { title: 'Sign up', link:'/signup' },
+        { title: 'Sign in', link:'/signin' },
+      ],
+
+      sideNav: false,
+    };
+  },
 };
 </script>
