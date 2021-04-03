@@ -3,8 +3,7 @@
         <p>Create your meetup</p>
 
         <br/>
-
-        <p>The Sign Up</p>
+        
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, ad. Eligendi, voluptates, officia molestias unde repellendus consequatur perspiciatis quod ratione, sapiente quisquam culpa nulla porro totam obcaecati voluptate veritatis modi!</p>
         <p>Porro laboriosam ratione hic temporibus atque iusto excepturi, ea fugiat dolorum quod, culpa aspernatur mollitia, eum dolorem minima omnis aliquid ab ipsum nulla corrupti neque. Quo similique dignissimos repellat eaque.</p>
         <p>At autem culpa quos debitis est, repellendus commodi nam provident deserunt ut dolore maxime a ipsa nostrum exercitationem. Reprehenderit non necessitatibus provident excepturi, voluptatum cum ipsam a beatae adipisci libero.</p>
