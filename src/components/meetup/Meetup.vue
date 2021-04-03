@@ -1,21 +1,25 @@
 <template>
   <v-card
-    class="mx-auto"
+    class="mx-auto mt-10"
     color="whitesmoke"
     dark
     max-width="1000"
+    elevation="5"
     >
 
-    <v-container v-for="meetup in meetups" :key="meetup.id">
+    <v-container>
         <v-card-title>
             {{meetup.title}}
         </v-card-title>
-        <v-img  :src="meetup.imageUrl" max-height="200px">
+        <v-img  
+        :src="meetup.imageUrl" 
+        max-height="300px"
+        >
         </v-img>   
         <v-card-text class="headline font-weight-bold">
              {{meetup.date}}
         </v-card-text>
-        <v-card-text>
+        <v-card-text class="mx-0 grey--text ">
             {{meetup.description}}
         </v-card-text>
 
@@ -62,38 +66,11 @@
 <script>
 
 export default {
-    data() {
-            return {
-                meetups: [
-                    { 
-                        imageUrl: 'https://www.startupbridge.eu/wp-content/uploads/2018/12/IMG_20181206_2036531-1030x773.jpg', 
-                        id: 'image1', 
-                        title: 'LaravelDev', 
-                        subtitle: 'Meet fellow artisans',
-                        address:'123 Khandla House',
-                        date: '30 Feb, 2020',
-                        description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio veritatis temporibus corrupti sed explicabo! Maxime quasi corporis consequatur debitis necessitatibus, quis sed perferendis et! Commodi quisquam suscipit totam soluta ipsa.Impedit repudiandae, aspernatur minima odio illum, nemo repellendus in mollitia, sit explicabo qui eligendi doloremque id fugiat alias deleniti est? Deserunt numquam cupiditate assumenda voluptates molestiae ex est in ipsum.'
-                    },
-                    { 
-                        imageUrl: 'https://fundbox.com/blog/wp-content/uploads/2017/08/DC_SMB_Meetup_ss_652442728.jpg', 
-                        id: 'image2', 
-                        title: 'DjangoDev', 
-                        subtitle: 'Meet Djangoians',
-                        address:'123 Khandla House',
-                        date: '30 Feb, 2020',
-                        description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio veritatis temporibus corrupti sed explicabo! Maxime quasi corporis consequatur debitis necessitatibus, quis sed perferendis et! Commodi quisquam suscipit totam soluta ipsa.Impedit repudiandae, aspernatur minima odio illum, nemo repellendus in mollitia, sit explicabo qui eligendi doloremque id fugiat alias deleniti est? Deserunt numquam cupiditate assumenda voluptates molestiae ex est in ipsum.'
-                    },
-                    { 
-                        imageUrl: 'https://cdn.eventil.com/uploads/event/header_image/299141/highres_482982453.jpg', 
-                        id: 'image3', 
-                        title: 'VueDev', 
-                        subtitle: 'Meet JS ninja',
-                        address:'123 Khandla House',
-                        date: '30 Feb, 2020',
-                        description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio veritatis temporibus corrupti sed explicabo! Maxime quasi corporis consequatur debitis necessitatibus, quis sed perferendis et! Commodi quisquam suscipit totam soluta ipsa.Impedit repudiandae, aspernatur minima odio illum, nemo repellendus in mollitia, sit explicabo qui eligendi doloremque id fugiat alias deleniti est? Deserunt numquam cupiditate assumenda voluptates molestiae ex est in ipsum.'
-                    },
-                ]
-            }
+    props: ['id'],
+    computed: {
+        meetup () {
+            return this.$store.getters.loadedMeetup(this.id)
         }
+    }
 }
 </script>

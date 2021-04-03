@@ -18,21 +18,10 @@
 
 <script>
     export default {
-        data() {
-            return {
-                meetups: [
-                    { 
-                        imageUrl: 'https://www.startupbridge.eu/wp-content/uploads/2018/12/IMG_20181206_2036531-1030x773.jpg', 
-                        id: 'image1', 
-                        title: 'LaravelDev'
-                    },
-                    { 
-                        imageUrl: 'https://fundbox.com/blog/wp-content/uploads/2017/08/DC_SMB_Meetup_ss_652442728.jpg', id: 'image2', title: 'DjangoDev'
-                    },
-                    { 
-                        imageUrl: 'https://cdn.eventil.com/uploads/event/header_image/299141/highres_482982453.jpg', id: 'image3', title: 'VueDev'
-                    },
-                ]
+        
+        computed: {
+            meetups() {
+                return this.$store.getters.featuredMeetups
             }
         },
         methods: {
