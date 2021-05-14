@@ -17,7 +17,7 @@
         >
         </v-img>   
         <v-card-text class="headline font-weight-bold">
-             {{meetup.date}}
+             {{meetup.date | date}} - {{meetup.location}}
         </v-card-text>
         <v-card-text class="mx-0 grey--text ">
             {{meetup.description}}

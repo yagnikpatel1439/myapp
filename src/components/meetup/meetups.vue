@@ -18,7 +18,7 @@
         <v-card-text class="text--primary">
         <div>{{meetup.address}}</div>
 
-        <div>{{meetup.date}}</div>
+        <div>{{meetup.date | date}}</div>
         </v-card-text>
 
         <v-card-actions>

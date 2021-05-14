@@ -12,7 +12,7 @@ export const store = new Vuex.Store({
             title: 'LaravelDev',
             subtitle: 'Meet fellow artisans',
             address:'123 Khandla House',
-            date: '30 Feb, 2020',
+            date: new Date(),
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
         },
         { 
@@ -21,7 +21,7 @@ export const store = new Vuex.Store({
             title: 'DjangoDev',
             subtitle: 'Meet Djangoians',
             address:'123 Khandla House',
-            date: '30 Feb, 2020',
+            date: new Date(),
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
         },
         { 
@@ -30,7 +30,7 @@ export const store = new Vuex.Store({
             title: 'VueDev',
             subtitle: 'Meet JS ninja',
             address:'123 Khandla House',
-            date: '30 Feb, 2020',
+            date: new Date(),
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
         },
     ],
@@ -39,8 +39,24 @@ export const store = new Vuex.Store({
         registeredMeetup: ['image1']
     }
     },
-    mutations: {},
-    actions: {},
+    mutations: {
+        createMeetup (state, payload) {
+            state.loadedMeetups.push(payload)
+        }
+    },
+    actions: {
+        createMeetup ({commit}, payload) {
+            const meetup = {
+            title: payload.title,
+            location: payload.location,
+            imageUrl: payload.imageUrl,
+            description: payload.description,
+            date: payload.date
+            }
+            // Reach out to Firebase and store it
+            commit('createMeetup', meetup)
+        }
+    },
     getters: {
         loadedMeetups (state) {
             return state.loadedMeetups.sort((meetupA, meetupB) => {
